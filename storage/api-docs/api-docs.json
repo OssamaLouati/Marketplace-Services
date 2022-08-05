@@ -1,0 +1,1814 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Marketplace APIs documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/clients": {
+            "get": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Get all the client",
+                "operationId": "d00d20521584ab5da83e088abb7aded2",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "CIN": {
+                                                        "type": "string",
+                                                        "example": "example CIN"
+                                                    },
+                                                    "Nom": {
+                                                        "type": "string",
+                                                        "example": "example content"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/client/{id}": {
+            "get": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Get Detail Client",
+                "operationId": "b403f421c2533750ad586d0ad518a40b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the client ID here",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "CIN": {
+                                            "type": "string",
+                                            "example": "W450055"
+                                        },
+                                        "Nom": {
+                                            "type": "string",
+                                            "example": "oussama"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Delete Client",
+                "operationId": "c589584b2052085ed2565a99e4c27709",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "delete client success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/commande/{id}": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Get  Commande by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Delete Commande",
+                "operationId": "5f9c55d6743f683fc8ce756654c6c58b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Commande supprimé avec success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/commandes/{id_technicien}/avalider": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Get  Commande d'un tech by status",
+                "parameters": [
+                    {
+                        "name": "id_technicien",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/commandes/{id_technicien}/validees": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Get Commande d'un tech by  status",
+                "parameters": [
+                    {
+                        "name": "id_technicien",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/commandes/{id_technicien}/toutcommandes": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Get tout Commandes d'un tech",
+                "parameters": [
+                    {
+                        "name": "id_technicien",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/commande": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Get  Commande multi criteria search",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/commandes/search": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Get  Commande multi criteria custom search",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/commandes/dashboard": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Get  Commandes in the dashboard",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/command": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Verify if commande is dispo",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/deleteEspece/{ides}": {
+            "get": {
+                "tags": [
+                    "Commande"
+                ],
+                "summary": "Delete Espece of",
+                "parameters": [
+                    {
+                        "name": "id_technicien",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "0101010101"
+                                                    },
+                                                    "point relais": {
+                                                        "type": "string",
+                                                        "example": "example point relais"
+                                                    },
+                                                    "Ville Livraison": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get Detail User",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the user ID here",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "_id": {
+                                            "type": "string",
+                                            "example": "65464441"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "a@a.com"
+                                        },
+                                        "role": {
+                                            "type": "string",
+                                            "example": "consommateur"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2021-12-11T09:25:53.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete User",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "delete User success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consommateurs": {
+            "get": {
+                "tags": [
+                    "Consommateur"
+                ],
+                "summary": "Get all Consumers",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "000000"
+                                                    },
+                                                    "civilisation": {
+                                                        "type": "string",
+                                                        "example": "example civilisation"
+                                                    },
+                                                    "nom": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    },
+                                                    "prenom": {
+                                                        "type": "string",
+                                                        "example": "example prenom"
+                                                    },
+                                                    "tel": {
+                                                        "type": "string",
+                                                        "example": "example tel"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "example email"
+                                                    },
+                                                    "adresse": {
+                                                        "type": "string",
+                                                        "example": "example adresse"
+                                                    },
+                                                    "ville": {
+                                                        "type": "string",
+                                                        "example": "example ville"
+                                                    },
+                                                    "pays": {
+                                                        "type": "string",
+                                                        "example": "example pays"
+                                                    },
+                                                    "favoris": {
+                                                        "type": "string",
+                                                        "example": "[]"
+                                                    },
+                                                    "panier": {
+                                                        "type": "string",
+                                                        "example": "[]"
+                                                    },
+                                                    "id_user": {
+                                                        "type": "string",
+                                                        "example": "66656565fg446fg464674f"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consommateur/{id}": {
+            "get": {
+                "tags": [
+                    "Consommateur"
+                ],
+                "summary": "Get all Consumer by Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the consumer Id here",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "000000"
+                                                    },
+                                                    "civilisation": {
+                                                        "type": "string",
+                                                        "example": "example civilisation"
+                                                    },
+                                                    "nom": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    },
+                                                    "prenom": {
+                                                        "type": "string",
+                                                        "example": "example prenom"
+                                                    },
+                                                    "tel": {
+                                                        "type": "string",
+                                                        "example": "example tel"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "example email"
+                                                    },
+                                                    "adresse": {
+                                                        "type": "string",
+                                                        "example": "example adresse"
+                                                    },
+                                                    "ville": {
+                                                        "type": "string",
+                                                        "example": "example ville"
+                                                    },
+                                                    "pays": {
+                                                        "type": "string",
+                                                        "example": "example pays"
+                                                    },
+                                                    "favoris": {
+                                                        "type": "string",
+                                                        "example": "[]"
+                                                    },
+                                                    "panier": {
+                                                        "type": "string",
+                                                        "example": "[]"
+                                                    },
+                                                    "id_user": {
+                                                        "type": "string",
+                                                        "example": "66656565fg446fg464674f"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consommateur/{id}/panier": {
+            "get": {
+                "tags": [
+                    "Consommateur"
+                ],
+                "summary": "Get the chart of a Consumer by its Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the consumer Id here to get the chart",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "panier": {
+                                                        "type": "string",
+                                                        "example": "[]"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consommateur/{id}/panierGroupes": {
+            "get": {
+                "tags": [
+                    "Consommateur"
+                ],
+                "summary": "Get the Grouped chart of a Consumer by its Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the consumer Id here to get the grouped chart",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "panier": {
+                                                        "type": "string",
+                                                        "example": "[]"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/consommateur/{id}/favoris": {
+            "get": {
+                "tags": [
+                    "Consommateur"
+                ],
+                "summary": "Get the favorites of a Consumer by its Id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the consumer Id here to get the grouped chart",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "panier": {
+                                                        "type": "string",
+                                                        "example": "[]"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/eleveurs": {
+            "get": {
+                "tags": [
+                    "Eleveur"
+                ],
+                "summary": "Get all Eleveurs",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "000000"
+                                                    },
+                                                    "cin": {
+                                                        "type": "string",
+                                                        "example": "example cin"
+                                                    },
+                                                    "nom": {
+                                                        "type": "string",
+                                                        "example": "example nom"
+                                                    },
+                                                    "prenom": {
+                                                        "type": "string",
+                                                        "example": "example prenom"
+                                                    },
+                                                    "tel": {
+                                                        "type": "string",
+                                                        "example": "example tel"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "example email"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/eleveur/{id}": {
+            "get": {
+                "tags": [
+                    "Eleveur"
+                ],
+                "summary": "Get Detail Eleveur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the user ID here",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "cin": {
+                                            "type": "string",
+                                            "example": "example cin"
+                                        },
+                                        "nom": {
+                                            "type": "string",
+                                            "example": "example nom"
+                                        },
+                                        "prenom": {
+                                            "type": "string",
+                                            "example": "example prenom"
+                                        },
+                                        "tel": {
+                                            "type": "string",
+                                            "example": "example tel"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "example email"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Eleveur"
+                ],
+                "summary": "Delete Eleveur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Eleveur supprimé avec success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/eleveur/{id}/Especes": {
+            "get": {
+                "tags": [
+                    "Eleveur"
+                ],
+                "summary": "Get the items of an Eleveur",
+                "operationId": "76e7fbeb6b4a2ed441ece6d51e29e1a9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the Eleveur Id here to get the chart",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "especes": {
+                                                        "type": "string",
+                                                        "example": "[]"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Especes": {
+            "get": {
+                "tags": [
+                    "Espece"
+                ],
+                "summary": "Get all Especes",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "example status"
+                                                    },
+                                                    "boucle": {
+                                                        "type": "string",
+                                                        "example": "example boucle"
+                                                    },
+                                                    "prix": {
+                                                        "type": "string",
+                                                        "example": "example prix"
+                                                    },
+                                                    "avance": {
+                                                        "type": "string",
+                                                        "example": "example avance"
+                                                    },
+                                                    "poinds": {
+                                                        "type": "string",
+                                                        "example": "example poids"
+                                                    },
+                                                    "age": {
+                                                        "type": "string",
+                                                        "example": "example age"
+                                                    },
+                                                    "espece": {
+                                                        "type": "string",
+                                                        "example": "example espece"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/test": {
+            "get": {
+                "tags": [
+                    "Espece"
+                ],
+                "summary": "Get all Especes Id where status equals to Disponible",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "example status"
+                                                    },
+                                                    "boucle": {
+                                                        "type": "string",
+                                                        "example": "example boucle"
+                                                    },
+                                                    "prix": {
+                                                        "type": "string",
+                                                        "example": "example prix"
+                                                    },
+                                                    "avance": {
+                                                        "type": "string",
+                                                        "example": "example avance"
+                                                    },
+                                                    "poinds": {
+                                                        "type": "string",
+                                                        "example": "example poids"
+                                                    },
+                                                    "age": {
+                                                        "type": "string",
+                                                        "example": "example age"
+                                                    },
+                                                    "espece": {
+                                                        "type": "string",
+                                                        "example": "example espece"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Espece": {
+            "get": {
+                "tags": [
+                    "Espece"
+                ],
+                "summary": "Get multi criteria search",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "example status"
+                                                    },
+                                                    "boucle": {
+                                                        "type": "string",
+                                                        "example": "example boucle"
+                                                    },
+                                                    "prix": {
+                                                        "type": "string",
+                                                        "example": "example prix"
+                                                    },
+                                                    "avance": {
+                                                        "type": "string",
+                                                        "example": "example avance"
+                                                    },
+                                                    "poinds": {
+                                                        "type": "string",
+                                                        "example": "example poids"
+                                                    },
+                                                    "age": {
+                                                        "type": "string",
+                                                        "example": "example age"
+                                                    },
+                                                    "espece": {
+                                                        "type": "string",
+                                                        "example": "example espece"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/EspecesMinMax": {
+            "get": {
+                "tags": [
+                    "Espece"
+                ],
+                "summary": "Get  Min et max values",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "prix min": {
+                                                        "type": "string",
+                                                        "example": "example"
+                                                    },
+                                                    "prix max": {
+                                                        "type": "string",
+                                                        "example": "example boucle"
+                                                    },
+                                                    "age min": {
+                                                        "type": "string",
+                                                        "example": "example "
+                                                    },
+                                                    "age max": {
+                                                        "type": "string",
+                                                        "example": "example avance"
+                                                    },
+                                                    "poids min": {
+                                                        "type": "string",
+                                                        "example": "example poids"
+                                                    },
+                                                    "poinds max": {
+                                                        "type": "string",
+                                                        "example": "example age"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Espece/{id}": {
+            "get": {
+                "tags": [
+                    "Espece"
+                ],
+                "summary": "Get Detail Espece avec Eleveur",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the espece ID here",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "example status"
+                                        },
+                                        "boucle": {
+                                            "type": "string",
+                                            "example": "example boucle"
+                                        },
+                                        "prix": {
+                                            "type": "string",
+                                            "example": "example prix"
+                                        },
+                                        "avance": {
+                                            "type": "string",
+                                            "example": "example avance"
+                                        },
+                                        "poinds": {
+                                            "type": "string",
+                                            "example": "example poids"
+                                        },
+                                        "age": {
+                                            "type": "string",
+                                            "example": "example age"
+                                        },
+                                        "espece": {
+                                            "type": "string",
+                                            "example": "example espece"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Espece"
+                ],
+                "summary": "Delete Espece",
+                "operationId": "2a7cb516ed7d68b0ee9877622824ad2c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "item deleted successfuly"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/techniciens": {
+            "get": {
+                "tags": [
+                    "Technicien"
+                ],
+                "summary": "Get all Techniciens",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/dashboard/techniciens": {
+            "get": {
+                "tags": [
+                    "Technicien"
+                ],
+                "summary": "Get all Techniciens and number of items for each technicien",
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/technicien/{id}/especes": {
+            "get": {
+                "tags": [
+                    "Technicien"
+                ],
+                "summary": "Get all Techniciens Especes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the Technicien Id here to get the chart",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/technicien/{id}/eleveurs": {
+            "get": {
+                "tags": [
+                    "Technicien"
+                ],
+                "summary": "Get all Techniciens eleveurs",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the Technicien Id here to get the chart",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/t/{id}/e/{id_eleveur}": {
+            "get": {
+                "tags": [
+                    "Technicien"
+                ],
+                "summary": "Get all Detail of an eleveur of a technicien",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the Technicien Id here",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id_eleveur",
+                        "in": "path",
+                        "description": "Insert the eleveur Id here ",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    }
+                }
+            }
+        },
+        "/api/technicien/{id}": {
+            "get": {
+                "tags": [
+                    "Technicien"
+                ],
+                "summary": "Get Detail Technicien",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Insert the technicien ID here",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "_id": {
+                                            "type": "number",
+                                            "example": "000000"
+                                        },
+                                        "civilisation": {
+                                            "type": "string",
+                                            "example": "example civilisation"
+                                        },
+                                        "nom": {
+                                            "type": "string",
+                                            "example": "example nom"
+                                        },
+                                        "prenom": {
+                                            "type": "string",
+                                            "example": "example prenom"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "example email"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Technicien"
+                ],
+                "summary": "Delete Technicien",
+                "operationId": "c999738e6516af270acd1d95129adfeb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Technicien supprimé avec success"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get all the Users",
+                "operationId": "2a2c0fd48be7709d5fc9bdd0e2d1238d",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "_id": {
+                                                        "type": "number",
+                                                        "example": "000000"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "example email"
+                                                    },
+                                                    "telephone": {
+                                                        "type": "string",
+                                                        "example": "example telephone"
+                                                    },
+                                                    "role": {
+                                                        "type": "string",
+                                                        "example": "example role"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
